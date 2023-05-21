@@ -43,3 +43,10 @@ def revealDealerHand():
     elif len(dealerHand) > 2:
         return dealerHand[0], dealerHand[1]
 
+for _ in range(2):
+    """
+    Give cards to both players
+    """
+    dealCard(dealerHand)
+    dealCard(playerHand)
+
