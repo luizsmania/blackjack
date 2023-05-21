@@ -34,3 +34,12 @@ def calculateTotal(turn):
                 total += 11
     return total
 
+def revealDealerHand():
+    """
+    This function reveals the dealer hand when needed, in case a card is added or in case someone wins.
+    """
+    if len(dealerHand) == 2:
+        return dealerHand[0]
+    elif len(dealerHand) > 2:
+        return dealerHand[0], dealerHand[1]
+
