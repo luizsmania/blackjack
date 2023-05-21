@@ -1,8 +1,11 @@
 import random
 
+#Global variables for when players are playing or not
+playerIn = True
+dealerIn = True
+
 # Setting Lists for the Deck, The player's Hand, and the Dealer's hand
-deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
-'J', 'Q', 'K' 'A', 'J', 'Q', 'K' 'A', 'J', 'Q', 'K' 'A','J', 'Q', 'K' 'A',]
+deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A']
 playerHand = []
 dealerHand = []
 
@@ -49,4 +52,28 @@ for _ in range(2):
     """
     dealCard(dealerHand)
     dealCard(playerHand)
+
+while playerIn or dealerIn:
+    """
+    Gives card to players and dealer, break if its >= 21
+    """ 
+    dealerHand = revealDealerHand()
+    print(f"Dealer has {' and '.join(str(card) for card in dealerHand)}, Total of: {calculateTotal(dealerHand)} points")
+    print(f"You have {' and '.join(str(card) for card in playerHand)}, Total of {calculateTotal(playerHand)} points")
+    if playerIn:
+        stayOrHit = input("Type 1 to: Stay\nType 2 to: Hit\n")
+    if calculateTotal(dealerHand) > 16:
+        dealerIn = False
+    else:
+        dealCard(dealerHand)
+    if stayOrHit == '1':
+        playerIn = False
+    else:
+        dealCard(playerHand)
+    if calculateTotal(playerHand) >= 21:
+        break
+    elif calculateTotal(dealerHand) >= 21:
+        break
+
+
 
