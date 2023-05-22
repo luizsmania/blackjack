@@ -23,5 +23,9 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
    "editor.defaultFormatter": "HookyQR.beautify",
-   "cSpell.enabled": false
+   "cSpell.enabled": false,
+   "[python]": {
+      "editor.defaultFormatter": "ms-python.autopep8"
+   },
+   "python.formatting.provider": "none"
 }
