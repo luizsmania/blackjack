@@ -42,9 +42,9 @@ def revealDealerHand():
     This function reveals the dealer hand when needed, in case a card is added or in case someone wins.
     """
     if len(dealerHand) == 2:
-        return dealerHand[0]
+        return [dealerHand[0]]
     elif len(dealerHand) > 2:
-        return dealerHand[0], dealerHand[1]
+        return [dealerHand[0], dealerHand[1]]
 
 for _ in range(2):
     """
@@ -74,6 +74,27 @@ while playerIn or dealerIn:
         break
     elif calculateTotal(dealerHand) >= 21:
         break
+
+
+# This if elif statements will check for the total of points in each hand and if someone wins they will stop the game and announce a winner
+if calculateTotal(playerHand) == 21:
+    print(f"\nYour cards are: {playerHand}, Total of: {calculateTotal(playerHand)} \nDealer has: {dealerHand} Total of: {calculateTotal(dealerHand)}")
+    print("Blackjack! You win!")
+elif calculateTotal(dealerHand) == 21:
+    print(f"\nYour cards are: {playerHand} Total of: {calculateTotal(playerHand)} \nDealer has: {dealerHand} Total of: {calculateTotal(dealerHand)}")
+    print("Blackjack! Dealer wins!")
+elif calculateTotal(playerHand)> 21:
+    print(f"\nYour cards are: {playerHand} Total of: {calculateTotal(playerHand)} points\nDealer has: {dealerHand} Total of: {calculateTotal(dealerHand)}")
+    print("You bust! Dealer wins!")
+elif calculateTotal(dealerHand)> 21:
+    print(f"\nYour cards are: {playerHand} Total of: {calculateTotal(playerHand)} points\nDealer has: {dealerHand} Total of: {calculateTotal(dealerHand)}")
+    print("Dealer busts! You win!")
+elif 21 - calculateTotal(dealerHand) < 21 - calculateTotal(playerHand):
+    print(f"\nYour cards are: {playerHand} Total of: {calculateTotal(playerHand)} points\nDealer has: {dealerHand} Total of: {calculateTotal(dealerHand)}")
+    print("Dealer wins!")
+elif 21 - calculateTotal(dealerHand) > 21 - calculateTotal(playerHand):
+    print(f"\nYour cards are: {playerHand} Total of: {calculateTotal(playerHand)} points\nDealer has: {dealerHand} Total of: {calculateTotal(dealerHand)}")
+    print("You win!")
 
 
 
