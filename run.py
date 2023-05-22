@@ -29,7 +29,7 @@ def calculateTotal(turn):
         if card in range(1, 11):
             total += card
         elif card in letters:
-            total += 1
+            total += 10
         else:
             if total > 11:
                 total += 1
