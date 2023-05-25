@@ -1,8 +1,10 @@
 import random
 play = True
+dealerScore = 0
+playerScore = 0
 
 print("Welcome to Paddy's BlackJack!")
-user = input("What is your name my little winner? : ")
+user = input("What is your name, our little winner? :")
 print(f"Alright, {user}, Would you like to play a game? Type Y/N")
 while play:
     #Global variables for when players are playing or not
@@ -55,7 +57,8 @@ while play:
         dealCard(dealerHand)
 
     while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if its >= 21
-        print(f"\nDealer has: {revealDealerHand()}\n")
+        print(f"\nA new game has started! Score: {user}: {playerScore}, Dealer: {dealerScore}")
+        print(f"\nDealer has: {revealDealerHand()}")
         print(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
         if playerIn:
             stayOrHit = input(f"1 to Stay\n2 to Hit\n")
@@ -76,24 +79,31 @@ while play:
     if total(playerHand) == 21: 
         print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
         print(f"Blackjack! {user} wins!")
+        playerScore+= 1
     elif total(dealerHand) == 21:
         print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
         print(f"Blackjack! Dealer wins!")
+        dealerScore+= 1
     elif total(playerHand) > 21:
         print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
         print(f"You bust! Dealer wins!")
+        dealerScore+= 1
     elif total(dealerHand) > 21:
         print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
         print(f"Dealer Busts! {user} wins!")
+        playerScore+= 1
     elif 21 - total (dealerHand) < 21 - total(playerHand):
         print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
         print(f"Dealer wins")
+        dealerScore+= 1
     elif 21 - total (dealerHand) > 21 - total(playerHand):
         print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
         print(f"{user} wins")
+        playerScore+= 1
     
-    play_again = input("Would you like to play again? Y\N").lower()
+    play_again = str(input("Would you like to play again? Y/N").lower())
     if play_again[0] != "y":
+        print(f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {playerScore}, Dealer: {dealerScore}")
         break
 
                 
