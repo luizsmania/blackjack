@@ -1,11 +1,21 @@
-import random
+import sys,time,random
 play = True
 dealerScore = 0
 playerScore = 0
 
-print("Welcome to Paddy's BlackJack!")
+
+def sprint(str):
+    """
+    Function for priting out text slowly
+    """
+    for c in str + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(3./90)
+
+sprint("Welcome to Paddy's BlackJack!")
 user = input("What is your name, our little winner? :")
-print(f"Alright, {user}, Would you like to play a game? Type Y/N")
+sprint(f"Alright, {user}, Would you like to play a game? Type Y/N")
 while play:
     #Global variables for when players are playing or not
     playerIn = True
@@ -35,7 +45,7 @@ while play:
             if card in range(1, 11):
                 total += card
             elif card in face:
-                total += 10
+                total += 10  
             else:
                 if total > 11:
                     total += 1 
@@ -57,9 +67,9 @@ while play:
         dealCard(dealerHand)
 
     while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if its >= 21
-        print(f"\nA new game has started! Score: {user}: {playerScore}, Dealer: {dealerScore}")
-        print(f"\nDealer has: {revealDealerHand()}")
-        print(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
+        sprint(f"\nA new game has started! Score: {user}: {playerScore}, Dealer: {dealerScore}")
+        sprint(f"\nDealer has: {revealDealerHand()}")
+        sprint(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
         if playerIn:
             stayOrHit = input(f"1 to Stay\n2 to Hit\n")
         if total(dealerHand) > 17:
@@ -77,33 +87,33 @@ while play:
 
     # This if elif statements will check for the total of points in each hand and if someone wins they will stop the game and announce a winner
     if total(playerHand) == 21: 
-        print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
-        print(f"Blackjack! {user} wins!")
+        sprint(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
+        sprint(f"Blackjack! {user} wins!")
         playerScore+= 1
     elif total(dealerHand) == 21:
-        print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
-        print(f"Blackjack! Dealer wins!")
+        sprint(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
+        sprint(f"Blackjack! Dealer wins!")
         dealerScore+= 1
     elif total(playerHand) > 21:
-        print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
-        print(f"You bust! Dealer wins!")
+        sprint(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
+        sprint(f"You bust! Dealer wins!")
         dealerScore+= 1
     elif total(dealerHand) > 21:
-        print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
-        print(f"Dealer Busts! {user} wins!")
+        sprint(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
+        sprint(f"Dealer Busts! {user} wins!")
         playerScore+= 1
     elif 21 - total (dealerHand) < 21 - total(playerHand):
-        print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
-        print(f"Dealer wins")
+        sprint(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
+        sprint(f"Dealer wins")
         dealerScore+= 1
     elif 21 - total (dealerHand) > 21 - total(playerHand):
-        print(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
-        print(f"{user} wins")
+        sprint(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
+        sprint(f"{user} wins")
         playerScore+= 1
     
     play_again = str(input("Would you like to play again? Y/N").lower())
     if play_again[0] != "y":
-        print(f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {playerScore}, Dealer: {dealerScore}")
+        sprint(f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {playerScore}, Dealer: {dealerScore}")
         break
 
                 
