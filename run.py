@@ -13,10 +13,8 @@ def sprint(str):
         sys.stdout.flush()
         time.sleep(3./90)
 
-sprint("Welcome to Paddy's BlackJack!")
-user = input("What is your name, our little winner? :")
-sprint(f"Alright, {user}, Would you like to play a game? Type Y/N")
-while play:
+def main():
+    global playerScore, dealerScore
     #Global variables for when players are playing or not
     playerIn = True
     dealerIn = True
@@ -60,14 +58,13 @@ while play:
         if len(dealerHand) == 2:
             return dealerHand[0]
         elif len(dealerHand) > 2:
-            return dealerHand[0], dealerHand[1]
+            return dealerHand
         
     for _ in range(2): # Give cards to both players
         dealCard(playerHand)
         dealCard(dealerHand)
 
     while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if its >= 21
-        sprint(f"\nA new game has started! Score: {user}: {playerScore}, Dealer: {dealerScore}")
         sprint(f"\nDealer has: {revealDealerHand()}")
         sprint(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
         if playerIn:
@@ -110,10 +107,31 @@ while play:
         sprint(f"\n{user} has: {playerHand}, Total of: {total(playerHand)} points. The dealer has: {dealerHand}, Total of: {total(dealerHand)} points")
         sprint(f"{user} wins")
         playerScore+= 1
-    
-    play_again = str(input("Would you like to play again? Y/N").lower())
-    if play_again[0] != "y":
-        sprint(f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {playerScore}, Dealer: {dealerScore}")
-        break
+        
+    def playAgain():
+        global playerScore, dealerScore
+        play_again = str(input("Would you like to play again? Y/N").lower())
 
+        if play_again[0] != "y":
+            sprint(f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {playerScore}, Dealer: {dealerScore}")
+            exit()
+        else:
+            sprint(f"Alright. A new game is starting.\nScore: {user}: {playerScore}, Dealer: {dealerScore}")
+            deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K']
+            dealerScore = 0
+            playerScore = 0
+            main()
+
+    playAgain()
+
+
+sprint("Welcome to Paddy's BlackJack!")
+user = input("What is your name, our little winner? ")
+playOrNo = str(input("Would you like to play a game? Y/N ").lower())
+
+if playOrNo[0] != "y":
+    sprint(f"So get lost")
+    exit()
+else:
+    main()
                 
