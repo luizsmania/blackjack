@@ -83,6 +83,7 @@ def main():
         if total(dealerHand) > 17:
             dealerIn = False
         else:
+            sprint(f"")
             dealCard(dealerHand)
         if stayOrHit == '1':
             playerIn = False
