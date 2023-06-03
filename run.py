@@ -1,8 +1,19 @@
 import sys,time,random
+from os import system, name
+from time import sleep
 play = True
 dealerScore = 0
 playerScore = 0
 
+def clear():
+ 
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+ 
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
 def sprint(str):
     """
@@ -110,28 +121,36 @@ def main():
         
     def playAgain():
         global playerScore, dealerScore
-        play_again = str(input("Would you like to play again? Y/N").lower())
+        play_again = str(input(f"Would you like to play again? Y/N\n").lower())
 
         if play_again[0] != "y":
+            sleep(1)
+            clear()
+            sleep(1)
             sprint(f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {playerScore}, Dealer: {dealerScore}")
             exit()
         else:
+            sleep(1)
+            clear()
+            sleep(1)
             sprint(f"Alright. A new game is starting.\nScore: {user}: {playerScore}, Dealer: {dealerScore}")
-            deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'J', 'Q', 'K']
-            dealerScore = 0
-            playerScore = 0
             main()
 
     playAgain()
 
 
 sprint("Welcome to Paddy's BlackJack!")
-user = input("What is your name, our little winner? ")
-playOrNo = str(input("Would you like to play a game? Y/N ").lower())
+sprint("What is your name, our little winner?")
+user = input("")
+sprint("Would you like to play a game? Y/N")
+playOrNo = str(input("").lower())
 
 if playOrNo[0] != "y":
-    sprint(f"So get lost")
+    sprint(f"Let me know when you are feeling like playing! See ya")
     exit()
 else:
+    sleep(1)
+    clear()
+    sleep(1)
     main()
                 
