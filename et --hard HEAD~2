@@ -1,0 +1,101 @@
+[33mcommit 4a0a4ca9c98dd9d390df9480e7efa03263900551[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Luiz Smania <66436972+luizsmania@users.noreply.github.com>
+Date:   Mon May 29 19:59:03 2023 +0000
+
+    Sleep and Clear functions added for presenting the text on adequate time and clearing the terminal as necessary
+
+[33mcommit ff31bc03a37e316c091db1ae8153f44934bdcac8[m
+Author: Luiz Smania <66436972+luizsmania@users.noreply.github.com>
+Date:   Mon May 29 19:58:16 2023 +0000
+
+    Sleep and Clear functions added for presenting the text on adequate time and clearing the terminal as necessary
+
+[33mcommit 48336bed01b23139bad8c3e1946d4184a2987dd5[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Luiz Smania <66436972+luizsmania@users.noreply.github.com>
+Date:   Sun May 28 18:33:33 2023 +0000
+
+    PlayAgain now added inside of a function that is inside of main function for the game to run again after match is finished
+
+[33mcommit a08b19653aab41497738e9b5ff3f5b169c8afeca[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Sat May 27 22:06:10 2023 +0000
+
+    Function for printing out text slowly added
+
+[33mcommit d50905690753142a27aca0e44bfa31a1152d2b7a[m
+Author: Luiz Smania <66436972+luizsmania@users.noreply.github.com>
+Date:   Thu May 25 21:46:15 2023 +0000
+
+    Some text corrected
+
+[33mcommit 167e9d0c5cfe560863dc24d38a769205be8dba7a[m
+Author: Luiz Smania <66436972+luizsmania@users.noreply.github.com>
+Date:   Thu May 25 20:34:33 2023 +0000
+
+    Add input for user name which will be used throughout the code. Game is now inside of a loop with option to play again
+
+[33mcommit efe0a058a7eee24dfc6e49dadbc13000582f6294[m
+Author: Luiz Smania <66436972+luizsmania@users.noreply.github.com>
+Date:   Mon May 22 13:51:09 2023 +0000
+
+    test
+
+[33mcommit 565b3d43cf2cfaf5f4549fb23ef776ec4437553c[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Mon May 22 14:35:26 2023 +0100
+
+    Refactored to fix bugs
+
+[33mcommit feb5d05dc90493a80f08263517d7a093bd113ff1[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Mon May 22 12:00:38 2023 +0000
+
+    If statements for checking the score and announcing a winner when someone reaches 21 or busts
+
+[33mcommit 588e2dfdc831fd2d0d36f506872f7a2113fb6663[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Mon May 22 11:46:51 2023 +0000
+
+    typo fixed when card is letter point increases by 10
+
+[33mcommit 3775e71eebd994fffb5e4d8a4223c44d265e53d6[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Sun May 21 18:21:50 2023 +0000
+
+    while loop added to give card to players and dealers
+
+[33mcommit ed6956e68af7d231d27b15a18353842273353e18[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Sun May 21 18:07:00 2023 +0000
+
+    For loop for giving card to both players added
+
+[33mcommit 775ae936e3c8183f61e6080fedb34558c8fe1106[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Sun May 21 18:03:53 2023 +0000
+
+    Function to reveal dealer hand added
+
+[33mcommit f94d55450ee708c45580a0c33da50a6d0ddcd5b9[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Sun May 21 16:58:53 2023 +0000
+
+    Function calculateTotal added, for calculating the points each round
+
+[33mcommit 835554f7f6c7ef4b215588161faf39314221bb01[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Sun May 21 16:51:52 2023 +0000
+
+    dealCard function added
+
+[33mcommit 12adf225b16f1c0afe281c3f8eb943be5f1c92b0[m
+Author: Luiz Smania <luizsmania1@gmail.com>
+Date:   Sun May 21 16:47:54 2023 +0000
+
+    Initial Commit, List with cards created and empty lists for playerhand and dealer hand
+
+[33mcommit 045172029f08227286812106be8b9b9e6da3d7ae[m
+Author: Luiz Smania <66436972+luizsmania@users.noreply.github.com>
+Date:   Sun May 21 17:08:58 2023 +0100
+
+    Initial commit
