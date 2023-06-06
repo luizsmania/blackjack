@@ -76,7 +76,7 @@ def main():
         dealCard(dealerHand)
 
     while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if its >= 21
-        if len(dealerHand) < 3:
+        if len(dealerHand) <= 2:
             sprint(f"\nDealer has: {revealDealerHand()} and X")
         else:
             sprint(f"\nDealer has: {revealDealerHand()}, total of {total(dealerHand)} points.\n")
@@ -99,27 +99,27 @@ def main():
 
     # This if elif statements will check for the total of points in each hand and if someone wins they will stop the game and announce a winner
     if total(playerHand) == 21: 
-        sprint(f"\n The dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
+        sprint(f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
         sprint(f"Blackjack! {user} wins!")
         playerScore+= 1
     elif total(dealerHand) == 21:
-        sprint(f"\n The dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
+        sprint(f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
         sprint(f"Blackjack! Dealer wins!")
         dealerScore+= 1
     elif total(playerHand) > 21:
-        sprint(f"\n The dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
+        sprint(f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
         sprint(f"You bust! Dealer wins!")
         dealerScore+= 1
     elif total(dealerHand) > 21:
-        sprint(f"\n The dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
+        sprint(f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
         sprint(f"Dealer Busts! {user} wins!")
         playerScore+= 1
     elif 21 - total (dealerHand) < 21 - total(playerHand):
-        sprint(f"\n The dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
+        sprint(f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
         sprint(f"Dealer wins")
         dealerScore+= 1
     elif 21 - total (dealerHand) > 21 - total(playerHand):
-        sprint(f"\n The dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
+        sprint(f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points.\n{user} has: {playerHand}, Total of: {total(playerHand)} points.")
         sprint(f"{user} wins")
         playerScore+= 1
         
