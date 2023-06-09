@@ -2,11 +2,14 @@ import sys,time,random
 from os import system, name
 from time import sleep
 play = True
-dealerScore = 0
+#Sets players scores that will be increasing accordingly to wins
+dealerScore = 0 
 playerScore = 0
 
 def clear():
- 
+    """
+    Clear fuction for cleaning the terminal
+    """
     # for windows
     if name == 'nt':
         _ = system('cls')
@@ -76,7 +79,7 @@ def main():
         dealCard(dealerHand)
 
     while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if its >= 21
-        if len(dealerHand) <= 2:
+        if len(dealerHand) < 3:
             sprint(f"\nDealer has: {revealDealerHand()} and X")
         else:
             sprint(f"\nDealer has: {revealDealerHand()}, total of {total(dealerHand)} points.\n")
@@ -160,8 +163,6 @@ else:
     sprint(f"Ace can count as a 1 or an 11 depending on which value helps the hand the most.")
     sprint(f"The aim of blackjack is to finish the game with a higher total than that of the dealer, without exceeding 21.\nGoing over 21 is commonly known as busting and means an automatic loss.")
     sleep(3)
-    clear()
-    sleep(1)
 sprint("Would you like to play a game? Y/N")
 playOrNo = str(input("").lower())
 
