@@ -87,13 +87,16 @@ def main():
         if playerIn:
             stayOrHit = input(f"1 to Stay\n2 to Hit\n")
         if total(dealerHand) > 17:
+            sprint("Dealer stays")
             dealerIn = False
         else:
-            sprint(f"")
+            sprint(f"Dealers hits and gets a new card")
             dealCard(dealerHand)
         if stayOrHit == '1':
+            sprint(f"{user} stays")
             playerIn = False
         else:
+            sprint(f"{user} hits and gets a new card")
             dealCard(playerHand)
         if total(playerHand) >= 21:
             break
