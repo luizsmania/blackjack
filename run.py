@@ -85,8 +85,7 @@ def main():
             sprint(f"\nDealer has: {dealerHand}, total of {total(dealerHand)} points.\n")
         sprint(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
         stayOrHit = input("1 to Stay\n2 to Hit\n")
-        while stayOrHit not in ['1', '2']:
-            
+        while stayOrHit not in ['1', '2']: #If user has not typed either 1 or 2
             sprint("Invalid option. Please choose either 1 or 2.")
             stayOrHit = input("1 to Stay\n2 to Hit\n")
     
@@ -96,7 +95,7 @@ def main():
         else:
             sprint("Dealer hits and gets a new card")
             dealCard(dealerHand)
-    
+
         if stayOrHit == '1':
             sprint(f"{user} stays")
             playerIn = False
@@ -104,7 +103,7 @@ def main():
             sprint(f"{user} hits and gets a new card")
             dealCard(playerHand)
     
-        if total(playerHand) >= 21:
+        if total(playerHand) >= 21: #Break statements in case someone wins or busts
             break
         elif total(dealerHand) >= 21:
             break
@@ -136,6 +135,9 @@ def main():
         playerScore+= 1
         
     def playAgain():
+        """
+        This function will start the game again in case the player wants so
+        """
         global playerScore, dealerScore
         play_again = str(input(f"Would you like to play again? Y/N\n").lower())
 
@@ -154,13 +156,13 @@ def main():
 
     playAgain()
 
-
+# Game starting messages
 sprint("Welcome to Paddy's BlackJack!")
 sprint("What is your name, our little winner?")
 user = input("")
 
 
-while True:
+while True: # Offer the player to read the rules and restarts in case option is not valid (Y or N)
     sprint("Would you like to read the rules? Y/N")
     readRules = str(input("").lower())
 
@@ -184,7 +186,7 @@ while True:
         sprint("Invalid option. Please choose either Y or N.")
     
     
-while True:
+while True: #Offer the player to play a game and restarts in case option is not valid (Y or N)
     playOrNo = input(f"Would you like to play a game? Y/N\n").lower()
 
     if playOrNo == "y":
