@@ -78,26 +78,32 @@ def main():
         dealCard(playerHand)
         dealCard(dealerHand)
 
-    while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if its >= 21
+    while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if it's >= 21
         if len(dealerHand) <= 2:
             sprint(f"\nDealer has: {revealDealerHand()} and X")
         else:
             sprint(f"\nDealer has: {dealerHand}, total of {total(dealerHand)} points.\n")
         sprint(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
-        if playerIn:
-            stayOrHit = input(f"1 to Stay\n2 to Hit\n")
+        stayOrHit = input("1 to Stay\n2 to Hit\n")
+        while stayOrHit not in ['1', '2']:
+            
+            sprint("Invalid option. Please choose either 1 or 2.")
+            stayOrHit = input("1 to Stay\n2 to Hit\n")
+    
         if total(dealerHand) > 17:
             sprint("Dealer stays")
             dealerIn = False
         else:
-            sprint(f"Dealers hits and gets a new card")
+            sprint("Dealer hits and gets a new card")
             dealCard(dealerHand)
+    
         if stayOrHit == '1':
             sprint(f"{user} stays")
             playerIn = False
         else:
             sprint(f"{user} hits and gets a new card")
             dealCard(playerHand)
+    
         if total(playerHand) >= 21:
             break
         elif total(dealerHand) >= 21:
@@ -152,29 +158,44 @@ def main():
 sprint("Welcome to Paddy's BlackJack!")
 sprint("What is your name, our little winner?")
 user = input("")
-sprint(f"Would you like to read the rules? Y/N")
-readRules = str(input("").lower())
-if readRules[0] != "y":
-    sprint(f"Alright, It seems that you already know the rules")
-else:
-    sleep(1)
-    clear()
-    sleep(1)
-    sprint(f"The rules are:")
-    sprint(f"Blackjack is played with a conventional deck of 52 playing cards")
-    sprint(f"2 through 10 count at face value, i.e. a 2 counts as two, a 9 counts as nine.\nFace cards (J,Q,K) count as 10.")
-    sprint(f"Ace can count as a 1 or an 11 depending on which value helps the hand the most.")
-    sprint(f"The aim of blackjack is to finish the game with a higher total than that of the dealer, without exceeding 21.\nGoing over 21 is commonly known as busting and means an automatic loss.")
-    sleep(3)
-sprint("Would you like to play a game? Y/N")
-playOrNo = str(input("").lower())
 
-if playOrNo[0] != "y":
-    sprint(f"Let me know when you are feeling like playing! See ya")
-    exit()
-else:
-    sleep(1)
-    clear()
-    sleep(1)
-    main()
+
+while True:
+    sprint("Would you like to read the rules? Y/N")
+    readRules = str(input("").lower())
+
+    if readRules and readRules[0] == "y":
+        time.sleep(1)
+        clear()
+        time.sleep(1)
+        sprint("The rules are:")
+        sprint("Blackjack is played with a conventional deck of 52 playing cards")
+        sprint("2 through 10 count at face value, i.e. a 2 counts as two, a 9 counts as nine.")
+        sprint("Face cards (J,Q,K) count as 10.")
+        sprint("Ace can count as a 1 or an 11 depending on which value helps the hand the most.")
+        sprint("The aim of blackjack is to finish the game with a higher total than that of the dealer, without exceeding 21.")
+        sprint("Going over 21 is commonly known as busting and means an automatic loss.")
+        sleep(3)
+        break
+    elif readRules and readRules[0] == "n":
+        sprint("Alright, it seems that you already know the rules")
+        break
+    else:
+        sprint("Invalid option. Please choose either Y or N.")
+    
+    
+while True:
+    playOrNo = input(f"Would you like to play a game? Y/N\n").lower()
+
+    if playOrNo == "y":
+        time.sleep(1)
+        clear()
+        time.sleep(1)
+        main()
+        break
+    elif playOrNo == "n":
+        sprint("Let me know when you are feeling like playing! See ya")
+        break
+    else:
+        sprint("Invalid option. Please choose either Y or N.")
                 
