@@ -79,10 +79,10 @@ def main():
         dealCard(dealerHand)
 
     while playerIn or dealerIn: # Main game loop, gives card to players and dealer, break if its >= 21
-        if len(dealerHand) < 3:
+        if len(dealerHand) <= 2:
             sprint(f"\nDealer has: {revealDealerHand()} and X")
         else:
-            sprint(f"\nDealer has: {revealDealerHand()}, total of {total(dealerHand)} points.\n")
+            sprint(f"\nDealer has: {dealerHand}, total of {total(dealerHand)} points.\n")
         sprint(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
         if playerIn:
             stayOrHit = input(f"1 to Stay\n2 to Hit\n")
