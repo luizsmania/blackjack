@@ -46,7 +46,7 @@ This Python project is a command-line implementation of the classic casino card 
 
 ### Features Left to Implement
 
-- #
+- Betting fictional money and Player Against Player.
 
 ## Testing 
 
