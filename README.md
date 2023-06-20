@@ -28,15 +28,18 @@ This Python project is a command-line implementation of the classic casino card 
 
 - __Rules__
 
-    - description goes here
-    =
+    - When the game starts, the player gets asked if they want to read the rules.
 
-- __The Game Area__
+     
 
-  - description goes here
+    ![Read The Rules](https://i.imgur.com/Zu1CyKk.png)
+    ![Rules Text](https://i.imgur.com/fSRtaey.png)
 
-![Game](link here)
+- __Score__
 
+  - The score is always updated when the match is over, it's presented to player when the match is over.
+
+  ![Score](https://i.imgur.com/zIpTJBw.png)
 
 
 
