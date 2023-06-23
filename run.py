@@ -1,5 +1,7 @@
 """
     Blackjack Game
+    Developed by Luiz Smania. As project for Software Developer course at Code Institute Ireland.
+    06/2023
 """
 
 import sys
@@ -73,8 +75,12 @@ def generate_deck():
 deck = generate_deck()
 
 # Setting Lists for the Deck, The player's Hand, and the Dealer's hand
-playerHand = []
-dealerHand = []
+
+def set_hand():
+    return []
+
+playerHand = set_hand()
+dealerHand = set_hand()
 
 
 def clear():
@@ -222,11 +228,11 @@ def main():
         sprint(f"{user} wins")
         PLAYER_SCORE += 1
 
-    def playAgain():
+    def play_again():
         """
         This function will start the game again in case the player wants so
         """
-        global PLAYER_SCORE, DEALER_SCORE
+        global PLAYER_SCORE, DEALER_SCORE, playerHand, dealerHand, deck
         play_again = str(input(f"Would you like to play again? Y/N\n").lower())
 
         if play_again[0] != "y":
@@ -245,11 +251,11 @@ def main():
                 f"Alright. A new game is starting.\nScore: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
             )
             deck = generate_deck()
-            playerHand = []
-            dealerHand = []
+            playerHand = set_hand()
+            dealerHand = set_hand()
             main()
 
-    playAgain()
+    play_again()
 
 
 # Game starting messages
