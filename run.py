@@ -1,6 +1,7 @@
 """
     Blackjack Game
-    Developed by Luiz Smania. As project for Software Developer course at Code Institute Ireland.
+    Developed by Luiz Smania.
+    As project for Software Developer course at Code Institute Ireland.
     06/2023
 """
 
@@ -16,63 +17,18 @@ PLAY = True
 DEALER_SCORE = 0
 PLAYER_SCORE = 0
 
+
 def generate_deck():
     return [
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    "A",
-    "J",
-    "Q",
-    "K",
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    "A",
-    "J",
-    "Q",
-    "K",
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    "A",
-    "J",
-    "Q",
-    "K",
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    "A",
-    "J",
-    "Q",
-    "K",
-]
+        2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K",
+        2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K",
+        2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K",
+        2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K"
+    ]
+
 
 deck = generate_deck()
+
 
 # Setting Lists for the Deck, The player's Hand, and the Dealer's hand
 
@@ -81,6 +37,7 @@ def set_hand():
     Function for emptying player hands when match ends.
     """
     return []
+
 
 playerHand = set_hand()
 dealerHand = set_hand()
@@ -153,7 +110,6 @@ def main():
     # Global variables for when players are playing or not
     playerIn = True
     dealerIn = True
-
 
     for _ in range(2):  # Give cards to both players
         deal_card(playerHand)
