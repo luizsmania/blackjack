@@ -19,6 +19,9 @@ PLAYER_SCORE = 0
 
 
 def generate_deck():
+    """
+    Generates a deck with 52 cards.
+    """
     return [
         2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K",
         2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K",
@@ -95,7 +98,7 @@ def total(turn):
     return total
 
 
-def revealDealerHand():
+def reveal_dealer_hand():
     """
     This function reveals the dealer hand when needed,
     in case a card is added or in case someone wins.
@@ -120,7 +123,7 @@ def main():
         """Main game loop, gives card to players and dealer,
         breaks if it's >= 21"""
         if len(dealerHand) <= 2:
-            sprint(f"\nDealer has: {revealDealerHand()} and X")
+            sprint(f"\nDealer has: {reveal_dealer_hand()} and X")
         else:
             sprint(
                 f"\nDealer: {dealerHand}, total: {total(dealerHand)} points.\n"
