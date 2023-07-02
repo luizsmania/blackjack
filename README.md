@@ -2,6 +2,8 @@
 
 This Python project is a command-line implementation of the classic casino card game Blackjack. It allows players to enjoy the excitement of playing Blackjack right from their terminal.
 
+Deployed project can be found here: [Deployed Project](https://paddysblackjack.herokuapp.com)
+
 ![Responsice Mockup](https://i.imgur.com/A1sz8Gk.png)
 
 ## Features 
