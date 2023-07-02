@@ -106,7 +106,7 @@ def revealDealerHand():
 
 
 def main():
-    global PLAYER_SCORE, DEALER_SCORE
+    global PLAYER_SCORE, DEALER_SCORE, playerHand, dealerHand, deck
     # Global variables for when players are playing or not
     playerIn = True
     dealerIn = True
@@ -204,36 +204,29 @@ def main():
         )
         sprint(f"{user} wins")
         PLAYER_SCORE += 1
+        
+    play_again = str(input(f"Would you like to play again? Y/N\n").lower())
 
-    def play_again():
-        """
-        This function will start the game again in case the player wants so
-        """
-        global PLAYER_SCORE, DEALER_SCORE, playerHand, dealerHand, deck
-        play_again = str(input(f"Would you like to play again? Y/N\n").lower())
-
-        if play_again[0] != "y":
-            sleep(1)
-            clear()
-            sleep(1)
-            sprint(
-                f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
-            )
-            exit()
-        else:
-            sleep(1)
-            clear()
-            sleep(1)
-            sprint(
-                f"Alright. A new game is starting.\nScore: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
-            )
-            deck = generate_deck()
-            playerHand = set_hand()
-            dealerHand = set_hand()
-            main()
-
-    play_again()
-
+    if play_again[0] != "y":
+        sleep(1)
+        clear()
+        sleep(1)
+        sprint(
+            f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+        )
+        exit()
+    else:
+        sleep(1)
+        clear()
+        sleep(1)
+        sprint(
+            f"Alright. A new game is starting.\nScore: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+        )
+        deck = generate_deck()
+        playerHand = set_hand()
+        dealerHand = set_hand()
+        main()
+    
 
 # Game starting messages
 sprint("Welcome to Paddy's BlackJack!")
