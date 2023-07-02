@@ -97,7 +97,8 @@ def total(turn):
 
 def revealDealerHand():
     """
-    This function reveals the dealer hand when needed, in case a card is added or in case someone wins.
+    This function reveals the dealer hand when needed,
+    in case a card is added or in case someone wins.
     """
     if len(dealerHand) == 2:
         return dealerHand[0]
@@ -115,18 +116,18 @@ def main():
         deal_card(playerHand)
         deal_card(dealerHand)
 
-    while (
-        playerIn or dealerIn
-    ):  # Main game loop, gives card to players and dealer, break if it's >= 21
+    while (playerIn or dealerIn):
+        """Main game loop, gives card to players and dealer,
+        breaks if it's >= 21"""
         if len(dealerHand) <= 2:
             sprint(f"\nDealer has: {revealDealerHand()} and X")
         else:
             sprint(
-                f"\nDealer has: {dealerHand}, total of {total(dealerHand)} points.\n"
+                f"\nDealer: {dealerHand}, total: {total(dealerHand)} points.\n"
             )
-        sprint(f"{user} has: {playerHand}, total of {total(playerHand)} points\n")
+        sprint(f"{user}: {playerHand}, total of {total(playerHand)} points\n")
         stayOrHit = input("1 to Stay\n2 to Hit\n")
-        while stayOrHit not in ["1", "2"]:  # If user has not typed either 1 or 2
+        while stayOrHit not in ["1", "2"]:  # If user hasnt typed either 1 or 2
             sprint("Invalid option. Please choose either 1 or 2.")
             stayOrHit = input("1 to Stay\n2 to Hit\n")
 
@@ -144,15 +145,19 @@ def main():
             sprint(f"{user} hits and gets a new card")
             deal_card(playerHand)
 
-        if total(playerHand) >= 21:  # Break statements in case someone wins or busts
+        # Break statements in case someone wins or busts
+        if total(playerHand) >= 21:
+
             break
         elif total(dealerHand) >= 21:
             break
 
-    # This if elif statements will check for the total of points in each hand and if someone wins they will stop the game and announce a winner
+    """This if elif statements will check for the total of points
+    in each hand and if someone wins theyll stop the game and announce a winner
+    """
     if total(playerHand) == 21:
         sprint(
-            f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points."
+            f"\nDealer has: {dealerHand}, Total: {total(dealerHand)} points."
         )
         sprint(
             f"{user} has: {playerHand}, Total of: {total(playerHand)} points."
@@ -161,7 +166,7 @@ def main():
         PLAYER_SCORE += 1
     elif total(dealerHand) == 21:
         sprint(
-            f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points."
+            f"\nDealer has: {dealerHand}, Total: {total(dealerHand)} points."
         )
         sprint(
             f"{user} has: {playerHand}, Total of: {total(playerHand)} points."
@@ -170,7 +175,7 @@ def main():
         DEALER_SCORE += 1
     elif total(playerHand) > 21:
         sprint(
-            f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points."
+            f"\nDealer has: {dealerHand}, Total: {total(dealerHand)} points."
         )
         sprint(
             f"{user} has: {playerHand}, Total of: {total(playerHand)} points."
@@ -179,7 +184,7 @@ def main():
         DEALER_SCORE += 1
     elif total(dealerHand) > 21:
         sprint(
-            f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points."
+            f"\nDealer has: {dealerHand}, Total: {total(dealerHand)} points."
         )
         sprint(
             f"{user} has: {playerHand}, Total of: {total(playerHand)} points."
@@ -188,7 +193,7 @@ def main():
         PLAYER_SCORE += 1
     elif 21 - total(dealerHand) < 21 - total(playerHand):
         sprint(
-            f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points."
+            f"\nDealer has: {dealerHand}, Total: {total(dealerHand)} points."
         )
         sprint(
             f"{user} has: {playerHand}, Total of: {total(playerHand)} points."
@@ -197,14 +202,14 @@ def main():
         DEALER_SCORE += 1
     elif 21 - total(dealerHand) > 21 - total(playerHand):
         sprint(
-            f"\nThe dealer has: {dealerHand}, Total of: {total(dealerHand)} points."
+            f"\nDealer has: {dealerHand}, Total: {total(dealerHand)} points."
         )
         sprint(
             f"{user} has: {playerHand}, Total of: {total(playerHand)} points."
         )
         sprint(f"{user} wins")
         PLAYER_SCORE += 1
-        
+
     play_again = str(input(f"Would you like to play again? Y/N\n").lower())
 
     if play_again[0] != "y":
@@ -212,21 +217,27 @@ def main():
         clear()
         sleep(1)
         sprint(
-            f"Alright. Thanks for playing with us! See you again another time.\nFinal Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+            f"Alright. Thanks for playing with us! See you again another time."
         )
+        sprint(
+            f"Final Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+            )
         exit()
     else:
         sleep(1)
         clear()
         sleep(1)
         sprint(
-            f"Alright. A new game is starting.\nScore: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+            f"Alright. A new game is starting."
         )
+        sprint(
+            f"Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+            )
         deck = generate_deck()
         playerHand = set_hand()
         dealerHand = set_hand()
         main()
-    
+
 
 # Game starting messages
 sprint("Welcome to Paddy's BlackJack!")
@@ -236,7 +247,7 @@ user = input("")
 
 while (
     True
-):  # Offer the player to read the rules and restarts in case option is not valid (Y or N)
+):  # Offer the player to read the rules and restarts in case option isnt valid
     sprint("Would you like to read the rules? Y/N")
     readRules = str(input("").lower())
 
@@ -245,20 +256,26 @@ while (
         clear()
         time.sleep(1)
         sprint("The rules are:")
-        sprint("Blackjack is played with a conventional deck of 52 playing cards")
+        sprint("Blackjack is played with a conventional")
+        sprint("deck of 52 playing cards")
         sprint(
-            "2 through 10 count at face value, i.e. a 2 counts as two, a 9 counts as nine."
+            "2 through 10 count at face value,"
         )
+        sprint("i.e. a 2 counts as two, a 9 counts as nine.")
         sprint("Face cards (J,Q,K) count as 10.")
         sprint(
-            "Ace can count as a 1 or an 11 depending on which value helps the hand the most."
+            "Ace can count as a 1 or an 11 depending on"
         )
+        sprint("which value helps the hand the most.")
         sprint(
-            "The aim of blackjack is to finish the game with a higher total than that of the dealer, without exceeding 21."
+            "The aim of blackjack is to finish the game"
         )
+        sprint("with a higher total than that of the dealer,")
+        sprint("without exceeding 21.")
         sprint(
-            "Going over 21 is commonly known as busting and means an automatic loss."
+            "Going over 21 is commonly known as busting"
         )
+        sprint("and means an automatic loss.")
         sleep(3)
         break
     elif readRules and readRules[0] == "n":
@@ -268,9 +285,9 @@ while (
         sprint("Invalid option. Please choose either Y or N.")
 
 
-while (
-    True
-):  # Offer the player to play a game and restarts in case option is not valid (Y or N)
+while (True):
+    """Offer the player to play a game and restarts
+    in case option is not valid (Y or N)"""
     playOrNo = input(f"Would you like to play a game? Y/N\n").lower()
 
     if playOrNo == "y":
