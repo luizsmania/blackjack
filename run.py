@@ -215,31 +215,43 @@ def main():
 
     play_again = str(input(f"Would you like to play again? Y/N\n").lower())
 
-    if play_again[0] != "y":
-        sleep(1)
-        clear()
-        sleep(1)
-        sprint(
-            f"Alright. Thanks for playing with us! See you again another time."
-        )
-        sprint(
-            f"Final Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+    while (
+        True
+    ):
+        play_again = str(input(f"Would you like to play again? Y/N\n").lower())
+
+        if play_again and play_again[0] == "y":
+            sleep(1)
+            clear()
+            sleep(1)
+            sprint(
+                f"Alright. A new game is starting."
             )
-        exit()
-    else:
-        sleep(1)
-        clear()
-        sleep(1)
-        sprint(
-            f"Alright. A new game is starting."
-        )
-        sprint(
-            f"Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+            sprint(
+                f"Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+                )
+            deck = generate_deck()
+            playerHand = set_hand()
+            dealerHand = set_hand()
+            main()
+            
+        if play_again and play_again[0] == "n":
+            sleep(1)
+            clear()
+            sleep(1)
+            sprint(
+                f"Alright. Thanks for playing with us! See you again another time."
             )
-        deck = generate_deck()
-        playerHand = set_hand()
-        dealerHand = set_hand()
-        main()
+            sprint(
+                f"Final Score: {user}: {PLAYER_SCORE}, Dealer: {DEALER_SCORE}"
+                )
+            exit()
+
+        else:
+            sprint(
+                f"Invalid option. Please choose either Y or N."
+            )
+        
 
 
 # Game starting messages
